@@ -25,7 +25,7 @@ class GameMob {
 		this.src=src
 		this.id=id
 		this.avatar=document.getElementById(id)
-		console.log(1, this.avatar)
+	
 		this.left=left
 		this.top=top
 		this.apply()	
@@ -189,8 +189,8 @@ class Bulet extends GameMob{
 		
 	}
 Bteleport(){
-	this.top = this.owner.top
-	this.left = this.owner.left
+	this.top = this.owner.top+this.owner.avatar.getBoundingClientRect().height/4
+	this.left = this.owner.left+this.owner.avatar.getBoundingClientRect().width/4
 	
 	this.apply()
 }
@@ -299,8 +299,8 @@ document.addEventListener("keyup",function(e){
 
 document.addEventListener("click",function(e){
 
-	var bigX = e.clientX-window.virus.avatar.getBoundingClientRect().x;
-	var bigY = e.clientY-window.virus.avatar.getBoundingClientRect().y;
+	var bigX = e.clientX-(window.virus.avatar.getBoundingClientRect().x+window.virus.avatar.getBoundingClientRect().width/2);
+	var bigY = e.clientY-(window.virus.avatar.getBoundingClientRect().y+window.virus.avatar.getBoundingClientRect().height/2);
 	var smallX = 15 / (Math.sqrt(bigY**2 + bigX**2) / bigX);
 	var smallY = 15 / (Math.sqrt(bigY**2 + bigX**2) / bigY);
 	var bulet = new Bulet ( "500", "500",window.ikra,window.virus,1,1/3,"https://iili.io/H37vN9I.png");
@@ -331,7 +331,7 @@ var id = setInterval(function(){
 
 });
 	document.addEventListener("click",function(e){
-
+console.log(window.virus.avatar.getBoundingClientRect().width) 
 	var bigX = window.virus.avatar.getBoundingClientRect().x-window.gun.avatar.getBoundingClientRect().x;
 	var bigY = window.virus.avatar.getBoundingClientRect().y-window.gun.avatar.getBoundingClientRect().y;
 	var smallX = 20 / (Math.sqrt(bigY**2 + bigX**2) / bigX);
