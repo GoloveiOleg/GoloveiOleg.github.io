@@ -4,10 +4,9 @@
 <body>
 
 <div id="points" >
-<img src="https://iili.io/H37bwqQ.png" alt="Enemybulet" border="0">
 </div>
 <img src="https://iili.io/H37Yxff.png" style="position:absolute; left:100px; top:100px;  	" id="ScaryO">	
- <img src="https://iili.io/H37enl2.png" style="position:absolute; left:300px; top:300px;" id="ikra"> 
+ <img src="https://iili.io/HFpnsO7.png" style="position:absolute; left:300px; top:300px;" id="ikra"> 
  <img src="https://iili.io/H37hk1S.png" style="position:absolute; left:300px; top:300px;" id="Enemy"> 
  <img src="https://iili.io/H37WayJ.png" style="position:absolute; left:300px; top:300px;" id="Gun"> 
 
@@ -17,6 +16,7 @@
 
 <script type="text/javascript">
 		var points = 0
+		var difficulty = 1
 	document.getElementById('points').innerHTML = "" + points;
 
   console.log(0)
@@ -272,6 +272,12 @@ document.addEventListener("keyup",function(e){
   
 
 });
+		document.addEventListener("keyup",function(e){
+			if(e.key==1 || e.key==2 || e.key==3){
+			window.difficulty = e.key	 
+			}
+			console.log(difficulty)
+		} )
 		document.addEventListener("mousemove",function(e){
 		var X1 = e.clientX
 		var Y1 = e.clientY
